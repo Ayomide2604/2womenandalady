@@ -4,6 +4,7 @@ import "./globals.css";
 
 // Layout component imports
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 /* Template CSS */
 import "@/assets/css/style.css";
@@ -46,6 +47,7 @@ export default function RootLayout({
 				<div className="wrapper">
 					<Header />
 					{children}
+					<Footer />
 				</div>
 
 				{/* jQuery FIRST */}
