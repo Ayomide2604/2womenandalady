@@ -1,4 +1,7 @@
 "use client";
+import Image from "next/image";
+
+// Header components
 import Topbar from "./Topbar";
 import Navbar from "./Navbar";
 
@@ -11,7 +14,7 @@ function Header() {
 						<div className="brand">
 							<a href="index.html" style={{ textDecoration: "none" }}>
 								{/* 2Women */}
-								<img src="assets/logo.png" alt="Logo" />
+								<Image src="/logo.png" alt="Logo" width={100} height={100} />
 							</a>
 						</div>
 					</div>
