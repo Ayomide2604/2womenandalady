@@ -12,15 +12,15 @@ const Services = () => {
 					<div className="col-lg-3 col-md-6">
 						<div className="service-item">
 							<Image
-								src="/assets/img/service-1.jpg"
+								src="/placeholder.jpg"
 								alt="Service"
 								width={500}
-								height={500}
+								height={300}
 								style={{
-									objectFit: "cover",
+									objectFit: "contain",
 								}}
 							/>
-							<h3>Flour Cleaning</h3>
+							<h3>Residential Cleaning</h3>
 							<p>
 								Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi.
 								Curabitur facilisis ornare
@@ -32,8 +32,16 @@ const Services = () => {
 					</div>
 					<div className="col-lg-3 col-md-6">
 						<div className="service-item">
-							<img src="img/service-2.jpg" alt="Service" />
-							<h3>Glass Cleaning</h3>
+							<Image
+								src="/placeholder.jpg"
+								alt="Service"
+								width={500}
+								height={300}
+								style={{
+									objectFit: "contain",
+								}}
+							/>
+							<h3>Construction Cleaning</h3>
 							<p>
 								Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi.
 								Curabitur facilisis ornare
@@ -45,7 +53,15 @@ const Services = () => {
 					</div>
 					<div className="col-lg-3 col-md-6">
 						<div className="service-item">
-							<img src="img/service-3.jpg" alt="Service" />
+							<Image
+								src="/placeholder.jpg"
+								alt="Service"
+								width={500}
+								height={300}
+								style={{
+									objectFit: "contain",
+								}}
+							/>
 							<h3>Carpet Cleaning</h3>
 							<p>
 								Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi.
@@ -58,8 +74,16 @@ const Services = () => {
 					</div>
 					<div className="col-lg-3 col-md-6">
 						<div className="service-item">
-							<img src="img/service-4.jpg" alt="Service" />
-							<h3>Toilet Cleaning</h3>
+							<Image
+								src="/placeholder.jpg"
+								alt="Service"
+								width={500}
+								height={300}
+								style={{
+									objectFit: "contain",
+								}}
+							/>
+							<h3>Bio Hazard Cleaning</h3>
 							<p>
 								Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi.
 								Curabitur facilisis ornare

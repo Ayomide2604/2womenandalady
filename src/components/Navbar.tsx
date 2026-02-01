@@ -28,16 +28,11 @@ const Navbar = () => {
 					<a href="service.html" className="nav-item nav-link">
 						Service
 					</a>
-					<a href="portfolio.html" className="nav-item nav-link">
-						Project
-					</a>
-					<a href="single.html" className="nav-item nav-link">
-						Single
-					</a>
+
 					<a href="contact.html" className="nav-item nav-link">
 						Contact
 					</a>
-					<div className="nav-item dropdown">
+					{/* <div className="nav-item dropdown">
 						<a
 							href="#"
 							className="nav-link dropdown-toggle"
@@ -53,7 +48,7 @@ const Navbar = () => {
 								Sub Item 2
 							</a>
 						</div>
-					</div>
+					</div> */}
 					<a href="#" className="btn">
 						Get A Quote
 					</a>
