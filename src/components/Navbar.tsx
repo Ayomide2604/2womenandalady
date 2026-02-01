@@ -1,11 +1,10 @@
 "use client";
+import Link from "next/link";
 
 const Navbar = () => {
 	return (
 		<div className="navbar navbar-expand-lg bg-light navbar-light">
-			<a href="#" className="navbar-brand">
-				MENU
-			</a>
+			<span className="navbar-brand">MENU</span>
 			<button
 				type="button"
 				className="navbar-toggler"
@@ -19,19 +18,19 @@ const Navbar = () => {
 				id="navbarCollapse"
 			>
 				<div className="navbar-nav ml-auto">
-					<a href="index.html" className="nav-item nav-link active">
+					<Link href="/" className="nav-item nav-link active">
 						Home
-					</a>
-					<a href="about.html" className="nav-item nav-link">
+					</Link>
+					<Link href="/about" className="nav-item nav-link">
 						About
-					</a>
-					<a href="service.html" className="nav-item nav-link">
-						Service
-					</a>
+					</Link>
+					<Link href="/services" className="nav-item nav-link">
+						Services
+					</Link>
 
-					<a href="contact.html" className="nav-item nav-link">
+					<Link href="/contact" className="nav-item nav-link">
 						Contact
-					</a>
+					</Link>
 					{/* <div className="nav-item dropdown">
 						<a
 							href="#"

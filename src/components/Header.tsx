@@ -1,6 +1,6 @@
 "use client";
+import Link from "next/link";
 import Image from "next/image";
-
 // Header components
 import Topbar from "./Topbar";
 import Navbar from "./Navbar";
@@ -12,7 +12,7 @@ function Header() {
 				<div className="header-top row align-items-center">
 					<div className="col-lg-3">
 						<div className="brand">
-							<a href="index.html" style={{ textDecoration: "none" }}>
+							<Link href="/" style={{ textDecoration: "none" }}>
 								{/* 2Women */}
 								<Image
 									src="/logo.png"
@@ -21,7 +21,7 @@ function Header() {
 									height={100}
 									style={{ objectFit: "contain" }}
 								/>
-							</a>
+							</Link>
 						</div>
 					</div>
 					<div className="col-lg-9">

@@ -83,17 +83,17 @@ const Footer = () => {
 			</div>
 			<div className="container copyright">
 				<div className="row">
-					<div className="col-md-6">
+					{/* <div className="col-md-6">
 						<p>
-							© <a href="https://htmlcodex.com">HTML Codex</a>, All Right
+							© <a href="https://htmlcodex.com">2Women&aLady</a>, All Right
 							Reserved.
 						</p>
-					</div>
-					<div className="col-md-6">
+					</div> */}
+					{/* <div className="col-md-6">
 						<p>
 							Designed By <a href="https://htmlcodex.com">HTML Codex</a>
 						</p>
-					</div>
+					</div> */}
 				</div>
 			</div>
 		</div>
