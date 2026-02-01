@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
-import BootstrapClient from "@/components/BootstrapClient";
 
 // Layout component imports
 import Header from "@/components/Header";
@@ -23,9 +22,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
 	children,
-}: Readonly<{
+}: {
 	children: React.ReactNode;
-}>) {
+}) {
 	return (
 		<html lang="en">
 			<head>
@@ -33,31 +32,54 @@ export default function RootLayout({
 					rel="stylesheet"
 					href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
 				/>
+				<link
+					rel="stylesheet"
+					href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+				/>
+				<link
+					rel="stylesheet"
+					href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&display=swap"
+				/>
 			</head>
 
 			<body>
 				<div className="wrapper">
-					<BootstrapClient />
 					<Header />
 					{children}
-					{/* Load jQuery first */}
-					<Script
-						src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-						strategy="beforeInteractive"
-					/>
-					{/* Load your template JS */}
-					<Script src="/assets/js/main.js" strategy="afterInteractive" />
-
-					<Script
-						src="/assets/lib/owlcarousel/assets/owl.carousel.min.js"
-						strategy="afterInteractive"
-					/>
-
-					<Script
-						src="/assets/lib/lightbox/js/lightbox.min.js"
-						strategy="afterInteractive"
-					/>
 				</div>
+
+				{/* jQuery FIRST */}
+				<Script
+					src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+					strategy="beforeInteractive"
+				/>
+
+				{/* Popper.js (required for dropdowns) */}
+				<Script
+					src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+					strategy="afterInteractive"
+				/>
+
+				{/* Bootstrap 4 JS */}
+				<Script
+					src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+					strategy="afterInteractive"
+				/>
+
+				{/* Owl Carousel */}
+				<Script
+					src="/assets/lib/owlcarousel/owl.carousel.min.js"
+					strategy="afterInteractive"
+				/>
+
+				{/* Lightbox */}
+				<Script
+					src="/assets/lib/lightbox/js/lightbox.min.js"
+					strategy="afterInteractive"
+				/>
+
+				{/* Template JS */}
+				<Script src="/assets/js/main.js" strategy="afterInteractive" />
 			</body>
 		</html>
 	);
