@@ -8,8 +8,10 @@ import Testimonials from "./sections/Testimonials";
 export default function Home() {
 	return (
 		<>
-			<div className="header home">
-				<Hero />
+			<div className="header home" style={{ backgroundColor: "black" }}>
+				<div className="container-fluid px-0">
+					<Hero />
+				</div>
 			</div>
 			<About />
 			<Services />

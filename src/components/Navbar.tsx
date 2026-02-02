@@ -48,7 +48,7 @@ const Navbar = () => {
 							</a>
 						</div>
 					</div> */}
-					<a href="#" className="btn">
+					<a href="#" className="btn btn-block">
 						Get A Quote
 					</a>
 				</div>

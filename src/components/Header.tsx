@@ -7,10 +7,10 @@ import Navbar from "./Navbar";
 
 function Header() {
 	return (
-		<div className="header ">
+		<div className="header " style={{ backgroundColor: "black" }}>
 			<div className="container-fluid">
 				<div className="header-top row align-items-center">
-					<div className="col-lg-3">
+					<div className="col-lg-3 col-md-4 col-12">
 						<div className="brand">
 							<Link href="/" style={{ textDecoration: "none" }}>
 								{/* 2Women */}
@@ -24,7 +24,7 @@ function Header() {
 							</Link>
 						</div>
 					</div>
-					<div className="col-lg-9">
+					<div className="col-lg-9 col-md-8 col-12">
 						<Topbar />
 						<Navbar />
 					</div>
