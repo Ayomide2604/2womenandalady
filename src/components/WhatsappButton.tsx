@@ -1,6 +1,5 @@
 // components/WhatsappButton.tsx
 "use client";
-import React from "react";
 
 const WhatsappButton = () => {
 	const whatsappNumber = "+14376855676";
