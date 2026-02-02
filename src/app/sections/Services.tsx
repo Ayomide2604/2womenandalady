@@ -6,18 +6,18 @@ const Services = () => {
 			<div className="container">
 				<div className="section-header">
 					<p>Our Services</p>
-					<h2>Provide Services Worldwide</h2>
+					<h2>Serving all of Edmonton and Nearby Areas</h2>
 				</div>
 				<div className="row">
 					<div className="col-lg-3 col-md-6">
 						<div className="service-item">
 							<Image
-								src="/placeholder.jpg"
+								src="/residential.jpg"
 								alt="Service"
 								width={500}
 								height={300}
 								style={{
-									objectFit: "contain",
+									objectFit: "cover",
 								}}
 							/>
 							<h3>Residential Cleaning</h3>
@@ -33,12 +33,12 @@ const Services = () => {
 					<div className="col-lg-3 col-md-6">
 						<div className="service-item">
 							<Image
-								src="/placeholder.jpg"
+								src="/construction.jpg"
 								alt="Service"
 								width={500}
 								height={300}
 								style={{
-									objectFit: "contain",
+									objectFit: "cover",
 								}}
 							/>
 							<h3>Construction Cleaning</h3>
@@ -54,12 +54,12 @@ const Services = () => {
 					<div className="col-lg-3 col-md-6">
 						<div className="service-item">
 							<Image
-								src="/placeholder.jpg"
+								src="/carpet.jpg"
 								alt="Service"
 								width={500}
 								height={300}
 								style={{
-									objectFit: "contain",
+									objectFit: "cover",
 								}}
 							/>
 							<h3>Carpet Cleaning</h3>
@@ -75,12 +75,12 @@ const Services = () => {
 					<div className="col-lg-3 col-md-6">
 						<div className="service-item">
 							<Image
-								src="/placeholder.jpg"
+								src="/biohazard.jpg"
 								alt="Service"
 								width={500}
 								height={300}
 								style={{
-									objectFit: "contain",
+									objectFit: "cover",
 								}}
 							/>
 							<h3>Bio Hazard Cleaning</h3>

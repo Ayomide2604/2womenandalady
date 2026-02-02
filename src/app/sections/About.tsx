@@ -7,11 +7,11 @@ const About = () => {
 					<div className="col-lg-5 col-md-6">
 						<div className="about-img">
 							<Image
-								src="/placeholder.jpg"
+								src="/about_us.jpg"
 								alt="Image"
 								width={500}
 								height={500}
-								style={{ objectFit: "contain" }}
+								style={{ objectFit: "cover" }}
 							/>
 						</div>
 					</div>
