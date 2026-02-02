@@ -81,12 +81,12 @@ a:focus {
 .header.home {
 	margin-bottom: 45px;
 	background:
-		linear-gradient(
+		/* linear-gradient(
 			rgba(0, 83, 156, 1),
 			rgba(0, 83, 156, 0.9),
 			rgba(0, 83, 156, 1)
-		),
-		/* url(../img/header.jpg); */
+		), */ url(../img/hero-1.jpg);
+
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -361,6 +361,51 @@ a:focus {
 	.header .hero .form {
 		margin-top: 45px;
 	}
+}
+
+.header.home {
+	position: relative; /* make pseudo-element positioning relative */
+	margin-bottom: 45px;
+
+	/* Original background image */
+	background: url(../img/hero-1.jpg) center/cover no-repeat;
+
+	/* Ensure text is above overlay */
+	z-index: 0;
+}
+
+/* Dark overlay to dim the image */
+.header.home::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5); /* adjust opacity (0.1–0.7) */
+	z-index: 0;
+}
+
+/* Make sure hero text and form are above overlay */
+.header.home .hero {
+	position: relative;
+	z-index: 1;
+}
+
+/* Make text sharper and bolder */
+.header.home .hero h2 {
+	font-weight: 700; /* bolder than current */
+	text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); /* adds depth */
+}
+
+.header.home .hero h2 span {
+	color: #ffd662; /* highlight color */
+	text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.header.home .hero p {
+	font-weight: 500;
+	text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
 }
 
 /*******************************/
