@@ -1,1 +1,22 @@
 /* @import "bootstrap/dist/css/bootstrap.min.css"; */
+/* Floating WhatsApp button */
+.whatsapp-button {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	background-color: #25d366;
+	color: white;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	z-index: 9999;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	text-align: center;
+	transition: transform 0.2s;
+}
+
+.whatsapp-button:hover {
+	transform: scale(1.1);
+	color: white;
+	text-decoration: none;
+}

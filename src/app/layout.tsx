@@ -15,6 +15,7 @@ import "@/assets/lib/lightbox/css/lightbox.min.css";
 /* Owl Carousel CSS */
 import "@/assets/lib/owlcarousel/assets/owl.carousel.min.css";
 import "@/assets/lib/owlcarousel/assets/owl.theme.default.min.css";
+import WhatsappButton from "@/components/WhatsappButton";
 
 export const metadata: Metadata = {
 	title: "2 Women and a Lady Cleaning Services",
@@ -47,6 +48,7 @@ export default function RootLayout({
 				<div className="wrapper">
 					<Header />
 					{children}
+					<WhatsappButton />
 					<Footer />
 				</div>
 
