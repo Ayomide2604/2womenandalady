@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Navbar = () => {
 	return (
-		<div className="navbar navbar-expand-lg bg-light navbar-light">
+		<div className="navbar navbar-expand-lg bg-light navbar-dark">
 			<span className="navbar-brand">MENU</span>
 			<button
 				type="button"
@@ -18,7 +18,7 @@ const Navbar = () => {
 				id="navbarCollapse"
 			>
 				<div className="navbar-nav ml-auto">
-					<Link href="/" className="nav-item nav-link active">
+					<Link href="/" className="nav-item nav-link">
 						Home
 					</Link>
 					<Link href="/about" className="nav-item nav-link">

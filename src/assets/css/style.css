@@ -86,7 +86,7 @@ a:focus {
 			rgba(0, 83, 156, 0.9),
 			rgba(0, 83, 156, 1)
 		),
-		url(../img/header.jpg);
+		/* url(../img/header.jpg); */
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
