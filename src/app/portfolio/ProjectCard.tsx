@@ -57,8 +57,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 								sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
 								className="portfolio-image"
 							/>
-							{/* Modern overlay */}
-							<div className="portfolio-overlay" onClick={openModal}></div>
+							{/* Modern overlay with view icon */}
+							<div className="portfolio-overlay" onClick={openModal}>
+								<button
+									className="view-button"
+									aria-label={`View ${project.title} gallery`}
+									type="button"
+								>
+									<i className="fa fa-eye" aria-hidden="true" />
+								</button>
+							</div>
 						</div>
 						{/* Title bar - keeping the original design */}
 						<span className="portfolio-title">{project.title}</span>
@@ -178,7 +186,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 					left: 0;
 					right: 0;
 					bottom: 0;
-					background: rgba(0, 83, 156, 0);
+					background: rgba(0, 0, 0, 0);
 					display: flex;
 					align-items: center;
 					justify-content: center;
@@ -192,52 +200,82 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 				}
 
 				.portfolio-figure:hover .portfolio-overlay {
-					background: rgba(0, 83, 156, 0.85);
+					background: rgba(0, 0, 0, 0.5);
 					opacity: 1;
 					pointer-events: all;
 				}
 
-				.link-preview {
+				.view-button {
 					display: flex;
 					align-items: center;
 					justify-content: center;
 					width: 70px;
 					height: 70px;
-					background: rgba(255, 255, 255, 0.95);
-					border: none;
+					background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+					border: 2px solid rgba(255, 255, 255, 0.8);
 					border-radius: 50%;
-					color: #00539c;
+					color: #2c3e50;
 					text-decoration: none;
-					transition: all 0.3s ease;
-					transform: scale(0.8) translate(-50%, -50%);
-					backdrop-filter: blur(10px);
-					box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+					transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+					transform: scale(0) rotate(-180deg);
+					backdrop-filter: blur(20px);
+					box-shadow:
+						0 8px 32px rgba(0, 0, 0, 0.2),
+						0 2px 8px rgba(0, 0, 0, 0.1),
+						inset 0 1px 0 rgba(255, 255, 255, 0.6);
 					cursor: pointer;
 					padding: 0;
-					position: absolute;
-					top: 50%;
-					left: 50%;
 					margin: 0;
+					position: relative;
+					overflow: hidden;
 				}
 
-				.portfolio-figure:hover .link-preview {
-					transform: scale(1) translate(-50%, -50%);
+				.view-button::before {
+					content: "";
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					background: linear-gradient(
+						45deg,
+						transparent 30%,
+						rgba(255, 255, 255, 0.5) 50%,
+						transparent 70%
+					);
+					transform: translateX(-100%);
+					transition: transform 0.6s ease;
 				}
 
-				.link-preview:hover {
-					background: #00539c;
-					color: #ffffff;
-					transform: scale(1.1) translate(-50%, -50%);
-					box-shadow: 0 6px 20px rgba(0, 83, 156, 0.4);
+				.portfolio-figure:hover .view-button {
+					transform: scale(1) rotate(0deg);
 				}
 
-				.link-preview i {
+				.view-button:hover {
+					background: linear-gradient(135deg, #ffffff 0%, #e9ecef 100%);
+					transform: scale(1.15) rotate(5deg);
+					box-shadow:
+						0 12px 40px rgba(0, 0, 0, 0.3),
+						0 4px 12px rgba(0, 0, 0, 0.15),
+						inset 0 1px 0 rgba(255, 255, 255, 0.8);
+					border-color: rgba(255, 255, 255, 1);
+				}
+
+				.view-button:hover::before {
+					transform: translateX(100%);
+				}
+
+				.view-button i {
 					font-size: 28px;
-					transition: transform 0.3s ease;
+					transition: all 0.3s ease;
+					position: relative;
+					z-index: 1;
+					filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 				}
 
-				.link-preview:hover i {
+				.view-button:hover i {
 					transform: scale(1.1);
+					filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.2));
 				}
 
 				.portfolio-title {
@@ -428,15 +466,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 						font-size: 14px;
 					}
 
+					/* Hide navigation arrows on mobile */
 					:global(.portfolio-swiper .swiper-button-next),
 					:global(.portfolio-swiper .swiper-button-prev) {
-						width: 40px;
-						height: 40px;
+						display: none !important;
 					}
 
 					:global(.portfolio-swiper .swiper-button-next::after),
 					:global(.portfolio-swiper .swiper-button-prev::after) {
-						font-size: 16px;
+						display: none !important;
 					}
 				}
 			`}</style>
