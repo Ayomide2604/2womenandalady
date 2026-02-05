@@ -4,7 +4,7 @@ const About = () => {
 		<div className="about">
 			<div className="container">
 				<div className="row">
-					<div className="col-lg-5 col-md-6">
+					<div className="col-lg-5 col-md-6 col-12">
 						<div className="about-img">
 							<Image
 								src="/about_us.jpg"
@@ -15,7 +15,7 @@ const About = () => {
 							/>
 						</div>
 					</div>
-					<div className="col-lg-7 col-md-6">
+					<div className="col-lg-7 col-md-6 col-12">
 						<div className="about-text">
 							<h2>
 								Proudly Serving <span>Edmonton</span> Since 2023
