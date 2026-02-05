@@ -4,6 +4,7 @@ import Script from "next/script";
 // Layout component imports
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageLoader from "@/components/PageLoader";
 
 /* Template CSS */
 import "@/assets/css/style.css";
@@ -46,6 +47,7 @@ export default function RootLayout({
 
 			<body suppressHydrationWarning>
 				<div className="wrapper">
+					<PageLoader />
 					<Header />
 					{children}
 					<WhatsappButton />
