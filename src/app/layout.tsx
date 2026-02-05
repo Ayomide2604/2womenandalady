@@ -63,6 +63,11 @@ export default function RootLayout({
 					src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
 					strategy="afterInteractive"
 				/>
+				<Script src="lib/easing/easing.min.js" strategy="afterInteractive" />
+				<Script
+					src="lib/isotope/isotope.pkgd.min.js"
+					strategy="afterInteractive"
+				/>
 
 				{/* Bootstrap 4 JS */}
 				<Script
