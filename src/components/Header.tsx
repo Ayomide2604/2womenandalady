@@ -2,12 +2,18 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 // Header components
 import Topbar from "./Topbar";
 import Navbar from "./Navbar";
 
 function Header() {
 	const [isOffcanvasOpen, setIsOffcanvasOpen] = useState(false);
+	const pathname = usePathname();
+
+	const isActiveLink = (href: string) => {
+		return pathname === href;
+	};
 
 	const toggleOffcanvas = () => {
 		setIsOffcanvasOpen(!isOffcanvasOpen);
@@ -86,11 +92,14 @@ function Header() {
 				id="mobileMenuOffcanvas"
 				style={{ backgroundColor: "#000", width: "300px" }}
 			>
-				<div className="offcanvas-header border-bottom border-secondary">
-					<h5 className="offcanvas-title text-white">Menu</h5>
+				<div className="offcanvas-header border-bottom border-secondary bg-gradient">
+					<div className="text-center py-3">
+						<h5 className="text-white mb-0">Menu</h5>
+					</div>
 					<button
 						type="button"
-						className="btn-close btn-close-white"
+						className="btn-close btn-close-white position-absolute"
+						style={{ top: "15px", right: "15px" }}
 						onClick={toggleOffcanvas}
 						aria-label="Close"
 					></button>
@@ -194,35 +203,45 @@ function Header() {
 						<div className="nav-links p-3">
 							<Link
 								href="/"
-								className="nav-link text-white d-block py-3 text-decoration-none border-bottom border-secondary"
+								className={`nav-link d-block py-3 text-decoration-none border-bottom border-secondary ${
+									isActiveLink("/") ? "text-warning" : "text-white"
+								}`}
 								onClick={toggleOffcanvas}
 							>
 								Home
 							</Link>
 							<Link
 								href="/about"
-								className="nav-link text-white d-block py-3 text-decoration-none border-bottom border-secondary"
+								className={`nav-link d-block py-3 text-decoration-none border-bottom border-secondary ${
+									isActiveLink("/about") ? "text-warning" : "text-white"
+								}`}
 								onClick={toggleOffcanvas}
 							>
 								About
 							</Link>
 							<Link
 								href="/services"
-								className="nav-link text-white d-block py-3 text-decoration-none border-bottom border-secondary"
+								className={`nav-link d-block py-3 text-decoration-none border-bottom border-secondary ${
+									isActiveLink("/services") ? "text-warning" : "text-white"
+								}`}
 								onClick={toggleOffcanvas}
 							>
 								Services
 							</Link>
 							<Link
 								href="/portfolio"
-								className="nav-link text-white d-block py-3 text-decoration-none border-bottom border-secondary"
+								className={`nav-link d-block py-3 text-decoration-none border-bottom border-secondary ${
+									isActiveLink("/portfolio") ? "text-warning" : "text-white"
+								}`}
 								onClick={toggleOffcanvas}
 							>
 								Portfolio
 							</Link>
 							<Link
 								href="/contact"
-								className="nav-link text-white d-block py-3 text-decoration-none border-bottom border-secondary"
+								className={`nav-link d-block py-3 text-decoration-none border-bottom border-secondary ${
+									isActiveLink("/contact") ? "text-warning" : "text-white"
+								}`}
 								onClick={toggleOffcanvas}
 							>
 								Contact

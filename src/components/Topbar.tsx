@@ -1,6 +1,6 @@
 function Topbar() {
 	return (
-		<div className="topbar text-white" style={{ backgroundColor: "black" }}>
+		<div className="topbar text-white" style={{ backgroundColor: "transparent" }}>
 			<div className="topbar-col">
 				<a
 					href="tel:+1 437 685 5676"

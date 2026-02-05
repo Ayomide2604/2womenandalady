@@ -1,7 +1,13 @@
 "use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
+	const pathname = usePathname();
+
+	const isActiveLink = (href: string) => {
+		return pathname === href;
+	};
 	return (
 		<div
 			className="navbar navbar-expand-lg navbar-dark"
@@ -21,31 +27,44 @@ const Navbar = () => {
 				id="navbarCollapse"
 			>
 				<div className="navbar-nav ml-auto">
-					<Link href="/" className="nav-item nav-link text-decoration-none">
+					<Link
+						href="/"
+						className={`nav-item nav-link text-decoration-none ${
+							isActiveLink("/") ? "text-warning" : "text-white"
+						}`}
+					>
 						Home
 					</Link>
 					<Link
 						href="/about"
-						className="nav-item nav-link text-decoration-none"
+						className={`nav-item nav-link text-decoration-none ${
+							isActiveLink("/about") ? "text-warning" : "text-white"
+						}`}
 					>
 						About
 					</Link>
 					<Link
 						href="/services"
-						className="nav-item nav-link text-decoration-none"
+						className={`nav-item nav-link text-decoration-none ${
+							isActiveLink("/services") ? "text-warning" : "text-white"
+						}`}
 					>
 						Services
 					</Link>
 					<Link
 						href="/portfolio"
-						className="nav-item nav-link text-decoration-none"
+						className={`nav-item nav-link text-decoration-none ${
+							isActiveLink("/portfolio") ? "text-warning" : "text-white"
+						}`}
 					>
 						Portfolio
 					</Link>
 
 					<Link
 						href="/contact"
-						className="nav-item nav-link text-decoration-none"
+						className={`nav-item nav-link text-decoration-none ${
+							isActiveLink("/contact") ? "text-warning" : "text-white"
+						}`}
 					>
 						Contact
 					</Link>
