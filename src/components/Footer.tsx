@@ -21,19 +21,19 @@ const Footer = () => {
 								contact@example.com
 							</p>
 							<div className="footer-social">
-								<a href="">
+								<a href="" className="text-decoration-none">
 									<i className="fab fa-twitter" />
 								</a>
-								<a href="">
+								<a href="" className="text-decoration-none">
 									<i className="fab fa-facebook-f" />
 								</a>
-								<a href="">
+								<a href="" className="text-decoration-none">
 									<i className="fab fa-youtube" />
 								</a>
-								<a href="">
+								<a href="" className="text-decoration-none">
 									<i className="fab fa-instagram" />
 								</a>
-								<a href="">
+								<a href="" className="text-decoration-none">
 									<i className="fab fa-linkedin-in" />
 								</a>
 							</div>
@@ -42,21 +42,41 @@ const Footer = () => {
 					<div className="col-md-6 col-lg-3">
 						<div className="footer-link">
 							<h2>Useful Links</h2>
-							<a href="">About Us</a>
-							<a href="">Our Story</a>
-							<a href="">Our Services</a>
-							<a href="">Our Projects</a>
-							<a href="">Contact Us</a>
+							<a href="" className="text-decoration-none">
+								About Us
+							</a>
+							<a href="" className="text-decoration-none">
+								Our Story
+							</a>
+							<a href="" className="text-decoration-none">
+								Our Services
+							</a>
+							<a href="" className="text-decoration-none">
+								Our Projects
+							</a>
+							<a href="" className="text-decoration-none">
+								Contact Us
+							</a>
 						</div>
 					</div>
 					<div className="col-md-6 col-lg-3">
 						<div className="footer-link">
 							<h2>Useful Links</h2>
-							<a href="">Our Clients</a>
-							<a href="">Clients Review</a>
-							<a href="">Ongoing Project</a>
-							<a href="">Customer Support</a>
-							<a href="">FAQs</a>
+							<a href="" className="text-decoration-none">
+								Our Clients
+							</a>
+							<a href="" className="text-decoration-none">
+								Clients Review
+							</a>
+							<a href="" className="text-decoration-none">
+								Ongoing Project
+							</a>
+							<a href="" className="text-decoration-none">
+								Customer Support
+							</a>
+							<a href="" className="text-decoration-none">
+								FAQs
+							</a>
 						</div>
 					</div>
 					<div className="col-md-6 col-lg-3">
@@ -74,11 +94,21 @@ const Footer = () => {
 			</div>
 			<div className="container footer-menu">
 				<div className="f-menu">
-					<a href="">Terms of use</a>
-					<a href="">Privacy policy</a>
-					<a href="">Cookies</a>
-					<a href="">Help &amp; FQAs</a>
-					<a href="">Contact us</a>
+					<a href="" className="text-decoration-none">
+						Terms of use
+					</a>
+					<a href="" className="text-decoration-none">
+						Privacy policy
+					</a>
+					<a href="" className="text-decoration-none">
+						Cookies
+					</a>
+					<a href="" className="text-decoration-none">
+						Help &amp; FQAs
+					</a>
+					<a href="" className="text-decoration-none">
+						Contact us
+					</a>
 				</div>
 			</div>
 			<div className="container copyright">

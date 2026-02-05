@@ -9,7 +9,6 @@ const page = () => {
 			<PageHeader title="Services" breadcrumb={["Home", "Services"]} />
 			<Services />
 			<Features />
-			<Pricing />
 		</div>
 	);
 };

@@ -1,14 +1,18 @@
 function Topbar() {
 	return (
-		<div className="topbar">
+		<div className="topbar text-white" style={{ backgroundColor: "black" }}>
 			<div className="topbar-col">
-				<a href="tel:+1 437 685 5676" aria-label="Call us">
+				<a
+					href="tel:+1 437 685 5676"
+					aria-label="Call us"
+					className="text-decoration-none"
+				>
 					<i className="fa fa-phone-alt" />
 					+1 437 685 5676
 				</a>
 			</div>
 			<div className="topbar-col">
-				<a href="mailto:company@2women.com">
+				<a href="mailto:company@2women.com" className="text-decoration-none">
 					<i className="fa fa-envelope" />
 					company@2women.com
 				</a>

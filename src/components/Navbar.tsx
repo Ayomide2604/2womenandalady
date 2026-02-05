@@ -3,7 +3,10 @@ import Link from "next/link";
 
 const Navbar = () => {
 	return (
-		<div className="navbar navbar-expand-lg bg-light navbar-light">
+		<div
+			className="navbar navbar-expand-lg navbar-dark"
+			style={{ backgroundColor: "black" }}
+		>
 			<span className="navbar-brand">MENU</span>
 			<button
 				type="button"
@@ -18,20 +21,32 @@ const Navbar = () => {
 				id="navbarCollapse"
 			>
 				<div className="navbar-nav ml-auto">
-					<Link href="/" className="nav-item nav-link">
+					<Link href="/" className="nav-item nav-link text-decoration-none">
 						Home
 					</Link>
-					<Link href="/about" className="nav-item nav-link">
+					<Link
+						href="/about"
+						className="nav-item nav-link text-decoration-none"
+					>
 						About
 					</Link>
-					<Link href="/services" className="nav-item nav-link">
+					<Link
+						href="/services"
+						className="nav-item nav-link text-decoration-none"
+					>
 						Services
 					</Link>
-					<Link href="/portfolio" className="nav-item nav-link">
+					<Link
+						href="/portfolio"
+						className="nav-item nav-link text-decoration-none"
+					>
 						Portfolio
 					</Link>
 
-					<Link href="/contact" className="nav-item nav-link">
+					<Link
+						href="/contact"
+						className="nav-item nav-link text-decoration-none"
+					>
 						Contact
 					</Link>
 					{/* <div className="nav-item dropdown">
@@ -51,7 +66,7 @@ const Navbar = () => {
 							</a>
 						</div>
 					</div> */}
-					<a href="#" className="btn btn-block">
+					<a href="#" className="btn btn-warning">
 						Get A Quote
 					</a>
 				</div>

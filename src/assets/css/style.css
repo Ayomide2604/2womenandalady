@@ -20,6 +20,7 @@ h6 {
 a {
 	color: #454545;
 	transition: 0.3s;
+	text-decoration: none;
 }
 
 a:hover,
@@ -360,6 +361,72 @@ a:focus {
 @media (max-width: 767.98px) {
 	.header .hero .form {
 		margin-top: 45px;
+	}
+}
+
+/* Mobile Header Enhancements */
+@media (max-width: 767.98px) {
+	.header {
+		padding: 10px 0;
+	}
+
+	.header .brand img {
+		max-width: 120px;
+		max-height: 80px;
+	}
+
+	.mobile-menu-toggle button:hover {
+		color: #ffd662 !important;
+		transition: color 0.3s ease;
+	}
+
+	.offcanvas {
+		transition: transform 0.3s ease-in-out;
+	}
+
+	.offcanvas.show {
+		transform: translateX(0);
+	}
+
+	.mobile-nav .nav-link {
+		transition: all 0.3s ease;
+		font-size: 16px;
+	}
+
+	.mobile-nav .nav-link:hover {
+		color: #ffd662 !important;
+		padding-left: 10px;
+		background: rgba(255, 255, 255, 0.05);
+	}
+
+	.mobile-topbar a {
+		transition: color 0.3s ease;
+	}
+
+	.mobile-topbar a:hover {
+		color: #ffd662 !important;
+	}
+
+	.mobile-social-links a {
+		transition: transform 0.2s ease;
+	}
+
+	.mobile-social-links a:hover {
+		transform: scale(1.2);
+		color: #ffd662 !important;
+	}
+
+	.mobile-nav .btn {
+		transition: all 0.3s ease;
+		border: none;
+		padding: 12px;
+		font-weight: 600;
+	}
+
+	.mobile-nav .btn:hover {
+		background: #ffcc00 !important;
+		transform: translateY(-2px);
+		box-shadow: 0 4px 8px rgba(255, 214, 98, 0.3);
 	}
 }
 
