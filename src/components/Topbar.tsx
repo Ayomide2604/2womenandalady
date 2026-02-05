@@ -1,14 +1,17 @@
 function Topbar() {
 	return (
-		<div className="topbar text-white" style={{ backgroundColor: "transparent" }}>
+		<div
+			className="topbar text-white"
+			style={{ backgroundColor: "transparent" }}
+		>
 			<div className="topbar-col">
 				<a
-					href="tel:+1 437 685 5676"
+					href="tel:+1 780 709 1707"
 					aria-label="Call us"
 					className="text-decoration-none"
 				>
 					<i className="fa fa-phone-alt" />
-					+1 437 685 5676
+					+1 780 709 1707
 				</a>
 			</div>
 			<div className="topbar-col">
@@ -25,14 +28,16 @@ function Topbar() {
 					<a href="" aria-label="Instagram">
 						<i className="fab fa-instagram" aria-hidden="true" />
 					</a>
-					<a href="" aria-label="Twitter">
-						<i className="fab fa-twitter" aria-hidden="true" />
+					<a
+						href="https://wa.me/17807091707"
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label="WhatsApp"
+					>
+						<i className="fab fa-whatsapp" aria-hidden="true" />
 					</a>
-					<a href="" aria-label="LinkedIn">
-						<i className="fab fa-linkedin" aria-hidden="true" />
-					</a>
-					<a href="" aria-label="YouTube">
-						<i className="fab fa-youtube" aria-hidden="true" />
+					<a href="mailto:company@2women.com" aria-label="Email">
+						<i className="fa fa-envelope" aria-hidden="true" />
 					</a>
 				</div>
 			</div>

@@ -2,8 +2,10 @@
 "use client";
 
 const WhatsappButton = () => {
-	const whatsappNumber = "+14376855676";
-	const message = encodeURIComponent("Hi! I would like to chat.");
+	const whatsappNumber = "+17807091707";
+	const message = encodeURIComponent(
+		"Hello! I'm interested in your cleaning services.",
+	);
 
 	return (
 		<a

@@ -9,32 +9,43 @@ const Footer = () => {
 						<div className="footer-contact">
 							<h2>Get In Touch</h2>
 							<p>
-								<i className="fa fa-map-marker-alt" />
-								1759, Plum Cres SW Edmonton, Alberta
-							</p>
-							<p>
 								<i className="fa fa-phone-alt" />
-								+1 437 685 5676
+								+1 780 709 1707
 							</p>
 							<p>
 								<i className="fa fa-envelope" />
-								contact@example.com
+								company@2women.com
 							</p>
 							<div className="footer-social">
-								<a href="" className="text-decoration-none">
-									<i className="fab fa-twitter" />
-								</a>
-								<a href="" className="text-decoration-none">
+								<a
+									href=""
+									className="text-decoration-none"
+									aria-label="Facebook"
+								>
 									<i className="fab fa-facebook-f" />
 								</a>
-								<a href="" className="text-decoration-none">
-									<i className="fab fa-youtube" />
-								</a>
-								<a href="" className="text-decoration-none">
+								<a
+									href=""
+									className="text-decoration-none"
+									aria-label="Instagram"
+								>
 									<i className="fab fa-instagram" />
 								</a>
-								<a href="" className="text-decoration-none">
-									<i className="fab fa-linkedin-in" />
+								<a
+									href="https://wa.me/17807091707"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="text-decoration-none"
+									aria-label="WhatsApp"
+								>
+									<i className="fab fa-whatsapp" />
+								</a>
+								<a
+									href="mailto:company@2women.com"
+									className="text-decoration-none"
+									aria-label="Email"
+								>
+									<i className="fa fa-envelope" />
 								</a>
 							</div>
 						</div>
@@ -46,13 +57,7 @@ const Footer = () => {
 								About Us
 							</a>
 							<a href="" className="text-decoration-none">
-								Our Story
-							</a>
-							<a href="" className="text-decoration-none">
 								Our Services
-							</a>
-							<a href="" className="text-decoration-none">
-								Our Projects
 							</a>
 							<a href="" className="text-decoration-none">
 								Contact Us
@@ -61,21 +66,12 @@ const Footer = () => {
 					</div>
 					<div className="col-md-6 col-lg-3">
 						<div className="footer-link">
-							<h2>Useful Links</h2>
+							<h2>Resources</h2>
 							<a href="" className="text-decoration-none">
-								Our Clients
-							</a>
-							<a href="" className="text-decoration-none">
-								Clients Review
-							</a>
-							<a href="" className="text-decoration-none">
-								Ongoing Project
+								FAQs
 							</a>
 							<a href="" className="text-decoration-none">
 								Customer Support
-							</a>
-							<a href="" className="text-decoration-none">
-								FAQs
 							</a>
 						</div>
 					</div>
@@ -83,8 +79,8 @@ const Footer = () => {
 						<div className="footer-form">
 							<h2>Stay Updated</h2>
 							<p>
-								Lorem ipsum dolor sit amet, adipiscing elit. Etiam accumsan
-								lacus eget velit
+								Subscribe to get updates on our cleaning services and special
+								offers.
 							</p>
 							<input className="form-control" placeholder="Email here" />
 							<button className="btn">Submit</button>
