@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import "./globals.css";
 
 // Layout component imports
 import Header from "@/components/Header";
@@ -8,6 +7,7 @@ import Footer from "@/components/Footer";
 
 /* Template CSS */
 import "@/assets/css/style.css";
+import "./globals.css";
 
 /* Lightbox CSS */
 import "@/assets/lib/lightbox/css/lightbox.min.css";

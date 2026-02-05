@@ -13,7 +13,7 @@ const PageHeader = ({ title, breadcrumb }: PageHeaderProps) => {
 					</div>
 					<div className="col-12">
 						{breadcrumb.map((item, index) => (
-							<a key={index} href="">
+							<a key={index} href="" style={{ textDecoration: "none" }}>
 								{item}
 							</a>
 						))}
