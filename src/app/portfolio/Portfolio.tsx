@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import { projects } from "./data";
-import { Project } from "./types";
 import PortfolioHeader from "./PortfolioHeader";
 import ProjectGrid from "./ProjectGrid";
 import LoadMoreButton from "./LoadMoreButton";
