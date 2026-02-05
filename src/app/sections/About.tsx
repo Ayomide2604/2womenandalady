@@ -18,24 +18,24 @@ const About = () => {
 					<div className="col-lg-7 col-md-6">
 						<div className="about-text">
 							<h2>
-								<span>2</span> Years Experience
+								Proudly Serving <span>Edmonton</span> Since 2023
 							</h2>
 							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Phasellus nec pretium mi. Curabitur facilisis ornare velit non
-								vulputate. Aliquam metus tortor, auctor id gravida condimentum,
-								viverra quis sem.
+								2 Women and a Lady Cleaning Services is a proudly female-owned
+								cleaning company founded in 2023, right here in Edmonton,
+								Alberta. We're committed to delivering exceptional cleaning
+								services to homes and businesses throughout Edmonton and nearby
+								communities.
 							</p>
 							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Phasellus nec pretium mi. Curabitur facilisis ornare velit non
-								vulputate. Aliquam metus tortor, auctor id gravida condimentum,
-								viverra quis sem. Curabitur non nisl nec nisi scelerisque
-								maximus. Aenean consectetur convallis porttitor. Aliquam
-								interdum at lacus non blandit.
+								Our team brings attention to detail and a personal touch to
+								every cleaning project. As a local, women-led business, we
+								understand the unique needs of Edmonton families and businesses,
+								providing reliable, thorough, and affordable cleaning solutions
+								you can trust.
 							</p>
 							<a className="btn" href="">
-								Learn More
+								Learn More About Our Services
 							</a>
 						</div>
 					</div>

@@ -20,7 +20,7 @@ const page = () => {
 											href="#collapseOne"
 											aria-expanded="true"
 										>
-											<span>1</span> Question 1?
+											<span>1</span> What areas do you service in Edmonton?
 										</a>
 									</div>
 									<div
@@ -29,9 +29,10 @@ const page = () => {
 										data-parent="#accordion"
 									>
 										<div className="card-body">
-											Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-											Phasellus nec pretium mi. Curabitur facilisis ornare velit
-											non.
+											We proudly serve Edmonton and all surrounding areas
+											including St. Albert, Sherwood Park, Spruce Grove, Leduc,
+											Beaumont, and nearby communities. Contact us to confirm
+											service in your specific location.
 										</div>
 									</div>
 								</div>
@@ -42,7 +43,7 @@ const page = () => {
 											data-toggle="collapse"
 											href="#collapseTwo"
 										>
-											<span>2</span> Question 2?
+											<span>2</span> Are you insured and bonded?
 										</a>
 									</div>
 									<div
@@ -51,9 +52,9 @@ const page = () => {
 										data-parent="#accordion"
 									>
 										<div className="card-body">
-											Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-											Phasellus nec pretium mi. Curabitur facilisis ornare velit
-											non.
+											Yes! As a professional cleaning company, we are fully
+											insured and bonded to protect both our clients and our
+											team. Your peace of mind is our priority.
 										</div>
 									</div>
 								</div>
@@ -64,7 +65,7 @@ const page = () => {
 											data-toggle="collapse"
 											href="#collapseThree"
 										>
-											<span>3</span> Question 3?
+											<span>3</span> What cleaning products do you use?
 										</a>
 									</div>
 									<div
@@ -86,7 +87,7 @@ const page = () => {
 											data-toggle="collapse"
 											href="#collapseFour"
 										>
-											<span>4</span> Question 4?
+											<span>4</span> How do I schedule a cleaning service?
 										</a>
 									</div>
 									<div
@@ -108,7 +109,7 @@ const page = () => {
 											data-toggle="collapse"
 											href="#collapseFour"
 										>
-											<span>5</span> Question 5?
+											<span>5</span> Do you offer recurring cleaning services?
 										</a>
 									</div>
 									<div

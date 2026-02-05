@@ -10,19 +10,19 @@ const Testimonials = () => {
 	const allTestimonials: Testimonial[] = [
 		{
 			message:
-				"Working with this team has been an incredible experience. They delivered beyond our expectations and truly understood our vision.",
-			name: "Sarah Johnson",
+				"Outstanding cleaning service! As a busy Edmonton mom, I appreciate how thorough and reliable they are. My home has never looked better!",
+			name: "Sarah Thompson",
 			image: "/testimonial.jpg",
 		},
 		{
 			message:
-				"Professional, creative, and reliable. They transformed our ideas into reality with exceptional attention to detail.",
+				"Professional, efficient, and trustworthy. They've been cleaning our office in downtown Edmonton for months and we couldn't be happier with the service.",
 			name: "Michael Chen",
 			image: "/testimonial.jpg",
 		},
 		{
 			message:
-				"The quality of work and dedication to our project was outstanding. I highly recommend their services to anyone looking for excellence.",
+				"Finally found a cleaning service that understands Edmonton homes! They're detail-oriented, professional, and always leave our space sparkling clean.",
 			name: "Emily Rodriguez",
 			image: "/testimonial.jpg",
 		},
@@ -32,8 +32,8 @@ const Testimonials = () => {
 		<div className="testimonial">
 			<div className="container">
 				<div className="section-header">
-					<p>Client Review</p>
-					<h2>Here's what our clients say</h2>
+					<p>Client Reviews</p>
+					<h2>Here's what Edmonton clients say about our cleaning services</h2>
 				</div>
 				<div className="owl-carousel testimonials-carousel">
 					{allTestimonials.map((testimonial, index) => (

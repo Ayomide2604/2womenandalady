@@ -2,13 +2,17 @@ const Hero = () => {
 	return (
 		<div className="hero row align-items-center m-0">
 			<div className="col-md-7 col-12 px-3">
-				<h2>Best & Trusted</h2>
+				<h2>Edmonton's Trusted</h2>
 				<h2>
-					<span>Cleaning</span> Service
+					<span>Female-Owned</span> Cleaning Service
 				</h2>
-				<p>Text goes here Text goes here Text goes here Text goes here</p>
+				<p>
+					Proudly serving Edmonton and surrounding areas with professional
+					cleaning services since 2023. Experience the difference of working
+					with a local, women-led cleaning company.
+				</p>
 				<a className="btn" href="">
-					Explore Now
+					Get Your Free Quote
 				</a>
 			</div>
 			<div className="col-md-5 col-12 px-3">

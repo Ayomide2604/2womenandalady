@@ -22,8 +22,9 @@ const Services = () => {
 							/>
 							<h3>Residential Cleaning</h3>
 							<p>
-								Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi.
-								Curabitur facilisis ornare
+								Professional home cleaning services for Edmonton families. From
+								regular maintenance to deep cleaning, we keep your home spotless
+								and healthy.
 							</p>
 							<a className="btn" href="">
 								Learn More
@@ -43,8 +44,8 @@ const Services = () => {
 							/>
 							<h3>Construction Cleaning</h3>
 							<p>
-								Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi.
-								Curabitur facilisis ornare
+								Post-construction and renovation cleanup services. We handle the
+								dust and debris so your new space is move-in ready.
 							</p>
 							<a className="btn" href="">
 								Learn More
@@ -64,8 +65,8 @@ const Services = () => {
 							/>
 							<h3>Carpet Cleaning</h3>
 							<p>
-								Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi.
-								Curabitur facilisis ornare
+								Deep carpet cleaning services to remove stains, odors, and
+								allergens. Professional equipment for lasting results.
 							</p>
 							<a className="btn" href="">
 								Learn More
@@ -85,8 +86,9 @@ const Services = () => {
 							/>
 							<h3>Bio Hazard Cleaning</h3>
 							<p>
-								Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi.
-								Curabitur facilisis ornare
+								Professional biohazard cleanup services with proper safety
+								protocols. Discreet, thorough, and compliant with health
+								regulations.
 							</p>
 							<a className="btn" href="">
 								Learn More

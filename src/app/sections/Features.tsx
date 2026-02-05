@@ -8,15 +8,14 @@ const Features = () => {
 					<div className="col-md-5">
 						<div className="section-header left">
 							<p>Why Choose Us</p>
-							<h2>Expert Cleaners and World Class Services</h2>
+							<h2>Edmonton's Trusted Female-Owned Cleaning Experts</h2>
 						</div>
 						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-							nec pretium mi. Curabitur facilisis ornare velit non vulputate.
-							Aliquam metus tortor, auctor id gravida condimentum, viverra quis
-							sem. Curabitur non nisl nec nisi scelerisque maximus. Aenean
-							consectetur convallis porttitor. Aliquam interdum at lacus non
-							blandit.
+							As Edmonton's premier female-owned cleaning service since 2023, we
+							bring attention to detail and a personal touch to every project.
+							Our team understands the unique needs of Edmonton homes and
+							businesses, providing reliable, thorough, and affordable cleaning
+							solutions you can trust.
 						</p>
 						<a className="btn" href="">
 							Learn More
@@ -34,10 +33,10 @@ const Features = () => {
 								/>
 							</div>
 							<div className="col-7">
-								<h3>Expert Cleaners</h3>
+								<h3>Local Edmonton Experts</h3>
 								<p>
-									Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi.
-									Curabitur facilisis ornare velit non vulputate.
+									As a local Edmonton business, we know the area and understand
+									the specific cleaning needs of our community.
 								</p>
 							</div>
 						</div>
@@ -52,10 +51,10 @@ const Features = () => {
 								/>
 							</div>
 							<div className="col-7">
-								<h3>Reasonable Prices</h3>
+								<h3>Fair & Transparent Pricing</h3>
 								<p>
-									Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi.
-									Curabitur facilisis ornare velit non vulputate.
+									Competitive rates with no hidden fees. Quality cleaning
+									services that fit your budget.
 								</p>
 							</div>
 						</div>
@@ -70,10 +69,10 @@ const Features = () => {
 								/>
 							</div>
 							<div className="col-7">
-								<h3>Quick &amp; Best Services</h3>
+								<h3>Reliable & Efficient Service</h3>
 								<p>
-									Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi.
-									Curabitur facilisis ornare velit non vulputate.
+									Professional team delivering consistent, high-quality results.
+									We respect your time and your space.
 								</p>
 							</div>
 						</div>
