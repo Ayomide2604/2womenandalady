@@ -4,7 +4,7 @@ const Hero = () => {
 			<div className="col-md-7 col-12 px-3">
 				<h2>Edmonton's Trusted</h2>
 				<h2>
-					<span>Female-Owned</span> Cleaning Service
+					<span>Cleaning Service</span>
 				</h2>
 				<p>
 					Proudly serving Edmonton and surrounding areas with professional
