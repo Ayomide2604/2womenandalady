@@ -37,6 +37,11 @@ const ContactForm = () => {
 			if (response.ok) {
 				// Show success state
 				setIsSubmitted(true);
+
+				// For testing: Show what customer would receive
+				if (formData.email === "theolowuayo@gmail.com") {
+					console.log("Customer would receive confirmation email");
+				}
 			} else {
 				const errorData = await response.json();
 				alert(
