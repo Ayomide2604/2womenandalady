@@ -1,4 +1,5 @@
-import Image from "next/image";
+import FeatureCard from "@/components/FeatureCard";
+import { features } from "@/data/features";
 
 const Features = () => {
 	return (
@@ -22,60 +23,9 @@ const Features = () => {
 						</a>
 					</div>
 					<div className="col-md-7">
-						<div className="row align-items-center feature-item">
-							<div className="col-5">
-								<Image
-									src="/placeholder.jpg"
-									alt="Feature"
-									width={200}
-									height={200}
-									objectFit="contain"
-								/>
-							</div>
-							<div className="col-7">
-								<h3>Local Edmonton Experts</h3>
-								<p>
-									As a local Edmonton business, we know the area and understand
-									the specific cleaning needs of our community.
-								</p>
-							</div>
-						</div>
-						<div className="row align-items-center feature-item">
-							<div className="col-5">
-								<Image
-									src="/placeholder.jpg"
-									alt="Feature"
-									width={200}
-									height={200}
-									objectFit="contain"
-								/>
-							</div>
-							<div className="col-7">
-								<h3>Fair & Transparent Pricing</h3>
-								<p>
-									Competitive rates with no hidden fees. Quality cleaning
-									services that fit your budget.
-								</p>
-							</div>
-						</div>
-						<div className="row align-items-center feature-item">
-							<div className="col-5">
-								<Image
-									src="/placeholder.jpg"
-									alt="Feature"
-									width={200}
-									height={200}
-									objectFit="contain"
-								/>
-							</div>
-							<div className="col-7">
-								<h3>Reliable & Efficient Service</h3>
-								<p>
-									Professional team delivering consistent, high-quality results.
-									We respect your time and your space.
-								</p>
-							</div>
-						</div>
+						{features.map((feature) => (
+							<FeatureCard key={feature.id} feature={feature} />
+						))}
 					</div>
 				</div>
 			</div>

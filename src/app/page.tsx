@@ -3,6 +3,7 @@ import About from "./sections/About";
 import Features from "./sections/Features";
 // import Pricing from "./sections/Pricing";
 import Services from "./sections/Services";
+import Team from "./sections/Team";
 import Testimonials from "./sections/Testimonials";
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
 			<Features />
 			{/* <Pricing /> */}
 			<Testimonials />
+			<Team />
 		</>
 	);
 }

@@ -94,7 +94,13 @@ function Header() {
 			>
 				<div className="offcanvas-header border-bottom border-secondary bg-gradient">
 					<div className="text-center py-3">
-						<h5 className="text-white mb-0">Menu</h5>
+						<Image
+							src="/logo.png"
+							alt="2 Women and a Lady Logo"
+							width={40}
+							height={40}
+							style={{ objectFit: "contain" }}
+						/>
 					</div>
 					<button
 						type="button"
