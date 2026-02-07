@@ -16,6 +16,12 @@ const page = () => {
 						<ContactForm />
 					</div>
 					<div className="col-md-6">
+						<div className="my-4 section-header">
+							<h2 className="mb-2">Frequently Answered Questions</h2>
+							<p className="mb-0">
+								Quick answers to the questions we get asked most.
+							</p>
+						</div>
 						<div className="faqs">
 							<div id="accordion">
 								{faqs.map((faq, index) => (
