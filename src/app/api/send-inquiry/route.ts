@@ -19,7 +19,9 @@ export async function POST(request: Request) {
 			);
 		}
 
-		const { name, email, service, subject, message } = await request.json();
+		const { firstName, lastName, email, service, subject, message } =
+			await request.json();
+		const fullName = `${firstName ?? ""} ${lastName ?? ""}`.trim();
 		const fromEmail = process.env.FROM_EMAIL || "contact@applybridge.site";
 
 		// Send email to business (you)
@@ -27,9 +29,10 @@ export async function POST(request: Request) {
 			from: fromEmail,
 			to: [process.env.RECIPIENT_EMAIL!],
 			replyTo: email,
-			subject: `New Cleaning Inquiry: ${name}`,
+			subject: `New Cleaning Inquiry: ${fullName}`,
 			html: businessInquiryEmailHtml({
-				name,
+				firstName,
+				lastName,
 				email,
 				service,
 				subject,
@@ -59,7 +62,8 @@ export async function POST(request: Request) {
 			replyTo: process.env.RECIPIENT_EMAIL!,
 			subject: "Thank You for Your Inquiry - 2 Women and a Lady",
 			html: customerConfirmationEmailHtml({
-				name,
+				firstName,
+				lastName,
 				service,
 				subject,
 				message,

@@ -13,6 +13,9 @@ const page = () => {
 				</div>
 				<div className="row">
 					<div className="col-md-6">
+						<ContactForm />
+					</div>
+					<div className="col-md-6">
 						<div className="faqs">
 							<div id="accordion">
 								{faqs.map((faq, index) => (
@@ -25,9 +28,6 @@ const page = () => {
 								))}
 							</div>
 						</div>
-					</div>
-					<div className="col-md-6">
-						<ContactForm />
 					</div>
 				</div>
 			</div>

@@ -4,7 +4,8 @@ import React, { useState } from "react";
 
 const ContactForm = () => {
 	const [formData, setFormData] = useState({
-		name: "",
+		firstName: "",
+		lastName: "",
 		email: "",
 		service: "",
 		subject: "",
@@ -35,12 +36,14 @@ const ContactForm = () => {
 			});
 
 			if (response.ok) {
+				const data = await response.json();
 				// Show success state
 				setIsSubmitted(true);
-
-				// For testing: Show what customer would receive
-				if (formData.email === "theolowuayo@gmail.com") {
-					console.log("Customer would receive confirmation email");
+				if (data?.customerSent === false) {
+					console.warn(
+						"Customer confirmation email failed:",
+						data?.customerError,
+					);
 				}
 			} else {
 				const errorData = await response.json();
@@ -57,7 +60,7 @@ const ContactForm = () => {
 	return (
 		<div className="contact-form">
 			<div className="contact-form-header">
-				<h3>Get Your Free Quote</h3>
+				<h3>Leave a Message</h3>
 				<p>Fill out the form below and we'll get back to you within 24 hours</p>
 			</div>
 			{isSubmitted ? (
@@ -81,19 +84,34 @@ const ContactForm = () => {
 				<form onSubmit={handleSubmit}>
 					<div className="form-row">
 						<div className="form-group col-md-6">
-							<label htmlFor="name">Your Name *</label>
+							<label htmlFor="firstName">First Name *</label>
 							<input
 								type="text"
-								id="name"
-								name="name"
+								id="firstName"
+								name="firstName"
 								className="form-control"
-								placeholder="John Doe"
-								value={formData.name}
+								placeholder="John"
+								value={formData.firstName}
 								onChange={handleChange}
 								required
 							/>
 						</div>
 						<div className="form-group col-md-6">
+							<label htmlFor="lastName">Last Name *</label>
+							<input
+								type="text"
+								id="lastName"
+								name="lastName"
+								className="form-control"
+								placeholder="Doe"
+								value={formData.lastName}
+								onChange={handleChange}
+								required
+							/>
+						</div>
+					</div>
+					<div className="form-row">
+						<div className="form-group col-md-12">
 							<label htmlFor="email">Your Email *</label>
 							<input
 								type="email"

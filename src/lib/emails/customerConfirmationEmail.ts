@@ -1,16 +1,19 @@
 export type CustomerConfirmationEmailParams = {
-	name: string;
+	firstName: string;
+	lastName: string;
 	service: string;
 	subject: string;
 	message: string;
 };
 
 export function customerConfirmationEmailHtml({
-	name,
+	firstName,
+	lastName,
 	service,
 	subject,
 	message,
 }: CustomerConfirmationEmailParams): string {
+	const fullName = `${firstName ?? ""} ${lastName ?? ""}`.trim();
 	return `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
           <div style="background: #00539c; color: white; padding: 20px; text-align: center; border-radius: 8px 8px 0 0;">
@@ -19,7 +22,7 @@ export function customerConfirmationEmailHtml({
           </div>
           
           <div style="background: #f8f9fa; padding: 30px; border-radius: 0 0 8px 8px; border: 1px solid #e9ecef;">
-            <h2 style="color: #00539c; margin-top: 0;">Thank You, ${name}!</h2>
+            <h2 style="color: #00539c; margin-top: 0;">Thank You, ${fullName}!</h2>
             
             <p style="font-size: 16px; line-height: 1.6;">We've received your inquiry and will get back to you within 24 hours.</p>
             

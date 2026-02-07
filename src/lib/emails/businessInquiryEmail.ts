@@ -1,5 +1,6 @@
 export type BusinessInquiryEmailParams = {
-	name: string;
+	firstName: string;
+	lastName: string;
 	email: string;
 	service: string;
 	subject: string;
@@ -7,12 +8,14 @@ export type BusinessInquiryEmailParams = {
 };
 
 export function businessInquiryEmailHtml({
-	name,
+	firstName,
+	lastName,
 	email,
 	service,
 	subject,
 	message,
 }: BusinessInquiryEmailParams): string {
+	const fullName = `${firstName ?? ""} ${lastName ?? ""}`.trim();
 	return `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
           <div style="background: #00539c; color: white; padding: 20px; text-align: center; border-radius: 8px 8px 0 0;">
@@ -24,7 +27,7 @@ export function businessInquiryEmailHtml({
             <h2 style="color: #00539c; margin-top: 0;">Customer Details</h2>
             
             <div style="background: white; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
-              <p style="margin: 8px 0;"><strong>Name:</strong> ${name}</p>
+              <p style="margin: 8px 0;"><strong>Name:</strong> ${fullName}</p>
               <p style="margin: 8px 0;"><strong>Email:</strong> ${email}</p>
               <p style="margin: 8px 0;"><strong>Service Type:</strong> ${service}</p>
               <p style="margin: 8px 0;"><strong>Subject:</strong> ${subject}</p>
