@@ -85,9 +85,7 @@ const Navbar = () => {
 							</a>
 						</div>
 					</div> */}
-					<a href="#" className="btn btn-warning">
-						Get A Quote
-					</a>
+					
 				</div>
 			</div>
 		</div>
