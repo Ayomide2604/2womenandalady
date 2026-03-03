@@ -9,17 +9,17 @@ export async function POST(request: Request) {
 		if (!process.env.RESEND_API_KEY) {
 			return Response.json(
 				{ error: "Missing RESEND_API_KEY" },
-				{ status: 500 },
+				{ status: 500 }
 			);
 		}
 		if (!process.env.RECIPIENT_EMAIL) {
 			return Response.json(
 				{ error: "Missing RECIPIENT_EMAIL" },
-				{ status: 500 },
+				{ status: 500 }
 			);
 		}
 
-		const { firstName, lastName, email, service, subject, message } =
+		const { firstName, lastName, email, phone, service, subject, message } =
 			await request.json();
 		const fullName = `${firstName ?? ""} ${lastName ?? ""}`.trim();
 		const fromEmail = process.env.FROM_EMAIL || "no-reply@2womenandalady.ca";
@@ -34,6 +34,7 @@ export async function POST(request: Request) {
 				firstName,
 				lastName,
 				email,
+				phone,
 				service,
 				subject,
 				message,
@@ -51,7 +52,7 @@ export async function POST(request: Request) {
 						recipientEmail: process.env.RECIPIENT_EMAIL,
 					},
 				},
-				{ status: 400 },
+				{ status: 400 }
 			);
 		}
 
@@ -67,6 +68,7 @@ export async function POST(request: Request) {
 				service,
 				subject,
 				message,
+				phone,
 			}),
 		});
 

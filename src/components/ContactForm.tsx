@@ -7,6 +7,7 @@ const ContactForm = () => {
 		firstName: "",
 		lastName: "",
 		email: "",
+		phone: "",
 		service: "",
 		subject: "",
 		message: "",
@@ -15,6 +16,7 @@ const ContactForm = () => {
 		firstName: "",
 		lastName: "",
 		email: "",
+		phone: "",
 		service: "",
 		subject: "",
 		message: "",
@@ -34,7 +36,7 @@ const ContactForm = () => {
 	const handleChange = (
 		e: React.ChangeEvent<
 			HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-		>,
+		>
 	) => {
 		setFormData({
 			...formData,
@@ -59,7 +61,7 @@ const ContactForm = () => {
 				if (data?.customerSent === false) {
 					console.warn(
 						"Customer confirmation email failed:",
-						data?.customerError,
+						data?.customerError
 					);
 				}
 
@@ -73,7 +75,7 @@ const ContactForm = () => {
 				const errorData = await response.json();
 				setIsSubmitting(false);
 				alert(
-					"Failed to send inquiry: " + (errorData.error || "Please try again."),
+					"Failed to send inquiry: " + (errorData.error || "Please try again.")
 				);
 			}
 		} catch (error) {
@@ -138,6 +140,21 @@ const ContactForm = () => {
 							className="form-control"
 							placeholder="john@example.com"
 							value={formData.email}
+							onChange={handleChange}
+							required
+						/>
+					</div>
+				</div>
+				<div className="form-row">
+					<div className="form-group col-md-12">
+						<label htmlFor="phone">Phone Number *</label>
+						<input
+							type="tel"
+							id="phone"
+							name="phone"
+							className="form-control"
+							placeholder="(780) 123-4567"
+							value={formData.phone}
 							onChange={handleChange}
 							required
 						/>
