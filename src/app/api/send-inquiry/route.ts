@@ -22,7 +22,7 @@ export async function POST(request: Request) {
 		const { firstName, lastName, email, service, subject, message } =
 			await request.json();
 		const fullName = `${firstName ?? ""} ${lastName ?? ""}`.trim();
-		const fromEmail = process.env.FROM_EMAIL || "contact@applybridge.site";
+		const fromEmail = process.env.FROM_EMAIL || "no-reply@2womenandalady.ca";
 
 		// Send email to business (you)
 		const businessEmail = await resend.emails.send({

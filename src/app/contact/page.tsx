@@ -1,4 +1,3 @@
-import React from "react";
 import FAQCard from "@/components/FAQCard";
 import { faqs } from "@/data/faqs";
 import ContactForm from "@/components/ContactForm";
