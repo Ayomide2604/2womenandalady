@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { supabase } from "@/lib/supabase";
 
 const ContactForm = () => {
 	const [formData, setFormData] = useState({
@@ -36,7 +37,7 @@ const ContactForm = () => {
 	const handleChange = (
 		e: React.ChangeEvent<
 			HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-		>
+		>,
 	) => {
 		setFormData({
 			...formData,
@@ -49,6 +50,26 @@ const ContactForm = () => {
 		setIsSubmitting(true);
 
 		try {
+			// Save to Supabase first
+			const { error: dbError } = await supabase
+				.from("contact_messages")
+				.insert({
+					first_name: formData.firstName,
+					last_name: formData.lastName,
+					email: formData.email,
+					phone: formData.phone,
+					service: formData.service,
+					subject: formData.subject,
+					message: formData.message,
+					replied: false,
+				});
+			if (dbError) {
+				console.error("Failed to save message:", dbError);
+				setIsSubmitting(false);
+				alert("Failed to save message. Please try again.");
+				return;
+			}
+
 			// Send inquiry via Resend API
 			const response = await fetch("/api/send-inquiry", {
 				method: "POST",
@@ -61,7 +82,7 @@ const ContactForm = () => {
 				if (data?.customerSent === false) {
 					console.warn(
 						"Customer confirmation email failed:",
-						data?.customerError
+						data?.customerError,
 					);
 				}
 
@@ -75,7 +96,7 @@ const ContactForm = () => {
 				const errorData = await response.json();
 				setIsSubmitting(false);
 				alert(
-					"Failed to send inquiry: " + (errorData.error || "Please try again.")
+					"Failed to send inquiry: " + (errorData.error || "Please try again."),
 				);
 			}
 		} catch (error) {

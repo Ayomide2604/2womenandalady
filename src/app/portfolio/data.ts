@@ -5,7 +5,14 @@ export const projects: Project[] = [
 		id: 1,
 		title: "Project 1",
 
-		images: ["/construction.jpg", "/residential.jpg", "/about_us.jpg"],
+		images: [
+			"/projects/1/kitchen_before.jpg",
+			"/projects/1/kitchen_after.jpg",
+			"/projects/1/microwave_before.jpg",
+			"/projects/1/microwave_after.jpg",
+			"/projects/1/toilet_before.jpg",
+			"/projects/1/toilet_after.jpg",
+		],
 	},
 	{
 		id: 2,

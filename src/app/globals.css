@@ -136,3 +136,100 @@ a {
 		transform: rotate(360deg);
 	}
 }
+
+/* Testimonial text overflow fixes */
+.testimonial .testimonial-item {
+	position: relative;
+	margin: 0 15px;
+	text-align: center;
+	min-height: 300px;
+	display: flex;
+	flex-direction: column;
+}
+
+.testimonial .testimonial-img {
+	position: relative;
+	margin-bottom: 15px;
+	z-index: 1;
+	width: 180px;
+	height: 180px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+.testimonial .testimonial-img img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 50%;
+}
+
+.testimonial .testimonial-content {
+	position: relative;
+	margin-top: -40px;
+	padding: 60px 25px 25px 25px;
+	text-align: center;
+	background: #ffd662;
+	border-radius: 5px;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.testimonial .testimonial-item p {
+	color: #000000;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.5;
+	margin-bottom: 15px;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+}
+
+.testimonial .testimonial-content h3 {
+	color: #000000;
+	font-size: 18px;
+	font-weight: 400;
+	text-transform: uppercase;
+	margin-bottom: 5px;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+}
+
+.testimonial .testimonial-content h4 {
+	font-size: 14px;
+	font-weight: 400;
+	margin-bottom: 0;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+}
+
+/* Enhanced Dot Navigation Styles */
+.testimonial .owl-dots {
+	margin-top: 20px;
+	text-align: center;
+}
+
+.testimonial .owl-dot {
+	display: inline-block;
+	margin: 0 5px;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background: #ffd662;
+	transition: all 0.3s ease;
+	cursor: pointer;
+}
+
+.testimonial .owl-dot:hover {
+	background: #00539c;
+	transform: scale(1.2);
+}
+
+.testimonial .owl-dot.active {
+	background: #00539c;
+	transform: scale(1.2);
+}

@@ -1,57 +1,93 @@
-import Image from "next/image";
+"use client";
+import { useEffect, useState } from "react";
 
-interface Testimonial {
-	message: string;
+import { supabase, Testimonial } from "@/lib/supabase";
+import TestimonialCard from "@/components/TestimonialCard";
+
+interface TestimonialProps {
 	name: string;
-	image: string;
+	message: string;
+	profession?: string;
+	imageUrl?: string;
 }
 
 const Testimonials = () => {
-	const allTestimonials: Testimonial[] = [
-		{
-			message:
-				"Outstanding cleaning service! As a busy Edmonton mom, I appreciate how thorough and reliable they are. My home has never looked better!",
-			name: "Sarah Thompson",
-			image: "/testimonial.jpg",
-		},
-		{
-			message:
-				"Professional, efficient, and trustworthy. They've been cleaning our office in downtown Edmonton for months and we couldn't be happier with the service.",
-			name: "Michael Chen",
-			image: "/testimonial.jpg",
-		},
-		{
-			message:
-				"Finally found a cleaning service that understands Edmonton homes! They're detail-oriented, professional, and always leave our space sparkling clean.",
-			name: "Emily Rodriguez",
-			image: "/testimonial.jpg",
-		},
-	];
+	const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+	const [loading, setLoading] = useState(true);
+
+	useEffect(() => {
+		const fetchApproved = async () => {
+			const { data, error } = await supabase
+				.from("testimonials")
+				.select("*")
+				.eq("approved", true)
+				.order("created_at", { ascending: false });
+			if (error) console.error("Failed to fetch testimonials:", error);
+			else setTestimonials(data || []);
+			setLoading(false);
+		};
+		fetchApproved();
+	}, []);
+
+	// Reinitialize Owl Carousel after testimonials load
+	useEffect(() => {
+		if (!loading && testimonials.length > 0) {
+			const timer = setTimeout(() => {
+				// @ts-ignore
+				if (window.$ && window.$.fn.owlCarousel) {
+					// @ts-ignore
+					$(".testimonials-carousel").owlCarousel("destroy");
+					// @ts-ignore
+					$(".testimonials-carousel").owlCarousel({
+						autoplay: true,
+						smartSpeed: 1000,
+						margin: 30,
+						dots: true,
+						loop: false,
+						nav: false,
+						responsive: {
+							0: { items: 1 },
+							768: { items: 2 },
+							992: { items: 3 },
+						},
+					});
+				}
+			}, 100);
+			return () => clearTimeout(timer);
+		}
+	}, [loading, testimonials]);
+
+	if (loading) {
+		return (
+			<div className="testimonial">
+				<div className="container">
+					<div className="section-header">
+						<p>Client Review</p>
+						<h2>Client Says About Service</h2>
+					</div>
+					<div className="text-center">Loading testimonials...</div>
+				</div>
+			</div>
+		);
+	}
 
 	return (
 		<div className="testimonial">
 			<div className="container">
 				<div className="section-header">
-					<p>Client Reviews</p>
-					<h2>Here's what Edmonton clients say about our cleaning services</h2>
+					<p>Client Review</p>
+					<h2>Client Says About Service</h2>
 				</div>
 				<div className="owl-carousel testimonials-carousel">
-					{allTestimonials.map((testimonial, index) => (
-						<div className="testimonial-item" key={index}>
-							<div className="testimonial-img">
-								<Image
-									src={testimonial.image}
-									alt=""
-									width={50}
-									height={50}
-									style={{ objectFit: "contain", width: "50%", height: "100%" }}
-								/>
-							</div>
-							<div className="testimonial-content">
-								<p>{testimonial.message}</p>
-								<h3>{testimonial.name}</h3>
-							</div>
-						</div>
+					{testimonials.map((testimonial) => (
+						<TestimonialCard
+							key={testimonial.id}
+							name={testimonial.name}
+							message={testimonial.message}
+							profession={testimonial.profession || undefined}
+							company={testimonial.company || undefined}
+							imageUrl={testimonial.image_url || undefined}
+						/>
 					))}
 				</div>
 			</div>

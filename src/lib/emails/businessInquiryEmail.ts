@@ -42,7 +42,6 @@ export function businessInquiryEmailHtml({
 								<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
 									<tr>
 										<td style="background: linear-gradient(135deg, #00539c 0%, #0b6bd3 100%); padding:22px 22px; font-family: Arial, sans-serif;">
-											<div style="color:#ffffff; font-weight:800; font-size:16px; line-height:22px; letter-spacing:0.02em;">New Cleaning Inquiry</div>
 											<div style="display:flex; align-items:center; gap:10px; margin-top:10px;">
 												<div style="color:rgba(255,255,255,0.92); font-size:13px; line-height:18px; font-weight:700;">2 Women and a Lady</div>
 											</div>
