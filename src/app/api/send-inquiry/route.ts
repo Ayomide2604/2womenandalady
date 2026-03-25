@@ -9,20 +9,22 @@ export async function POST(request: Request) {
 		if (!process.env.RESEND_API_KEY) {
 			return Response.json(
 				{ error: "Missing RESEND_API_KEY" },
-				{ status: 500 }
+				{ status: 500 },
 			);
 		}
 		if (!process.env.RECIPIENT_EMAIL) {
 			return Response.json(
 				{ error: "Missing RECIPIENT_EMAIL" },
-				{ status: 500 }
+				{ status: 500 },
 			);
 		}
 
 		const { firstName, lastName, email, phone, service, subject, message } =
 			await request.json();
 		const fullName = `${firstName ?? ""} ${lastName ?? ""}`.trim();
-		const fromEmail = process.env.FROM_EMAIL || "no-reply@2womenandalady.ca";
+		const fromEmail =
+			process.env.FROM_EMAIL ||
+			`noreply@${process.env.NEXT_PUBLIC_URL?.replace("https://", "").replace("http://", "")}`;
 
 		// Send email to business (you)
 		const businessEmail = await resend.emails.send({
@@ -52,7 +54,7 @@ export async function POST(request: Request) {
 						recipientEmail: process.env.RECIPIENT_EMAIL,
 					},
 				},
-				{ status: 400 }
+				{ status: 400 },
 			);
 		}
 
