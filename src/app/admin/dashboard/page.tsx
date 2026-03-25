@@ -310,7 +310,7 @@ export default function AdminDashboard() {
 					{activeTab === "team" && (
 						<>
 							<div className="mb-3">
-								<Link href="/admin/team/new" className="btn btn-primary">
+								<Link href="/admin/team/new" className="btn btn-dark">
 									Add Team Member
 								</Link>
 							</div>

@@ -222,7 +222,7 @@ export default function SubmitTestimonial() {
 						</div>
 						<button
 							type="submit"
-							className="btn btn-primary"
+							className="btn btn-dark"
 							disabled={isSubmitting}
 						>
 							{isSubmitting ? "Submitting..." : "Submit Testimonial"}

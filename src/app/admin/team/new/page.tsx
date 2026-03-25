@@ -178,7 +178,7 @@ export default function TeamMemberNew() {
 								Active
 							</label>
 						</div>
-						<button type="submit" className="btn btn-primary" disabled={saving}>
+						<button type="submit" className="btn btn-dark" disabled={saving}>
 							{saving ? "Saving..." : "Create Team Member"}
 						</button>
 					</form>

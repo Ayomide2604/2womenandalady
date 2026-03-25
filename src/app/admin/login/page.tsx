@@ -68,7 +68,7 @@ export default function AdminLogin() {
 					{error && <div className="alert alert-danger">{error}</div>}
 					<button
 						type="submit"
-						className="btn btn-primary w-100"
+						className="btn btn-dark w-100"
 						disabled={loading}
 					>
 						{loading ? "Logging in..." : "Log In"}

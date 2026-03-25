@@ -166,7 +166,7 @@ export default function TeamMemberEdit() {
 								Active
 							</label>
 						</div>
-						<button type="submit" className="btn btn-primary" disabled={saving}>
+						<button type="submit" className="btn btn-dark" disabled={saving}>
 							{saving ? "Saving..." : "Save Changes"}
 						</button>
 					</form>
