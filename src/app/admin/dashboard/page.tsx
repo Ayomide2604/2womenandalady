@@ -56,7 +56,7 @@ export default function AdminDashboard() {
 		const { data, error } = await supabase
 			.from("team_members")
 			.select("*")
-			.order("order_index", { ascending: true });
+			.order("created_at", { ascending: false });
 		if (error) console.error(error);
 		else setTeamMembers(data || []);
 		setLoading(false);
@@ -324,9 +324,8 @@ export default function AdminDashboard() {
 									<thead>
 										<tr>
 											<th>Name</th>
-											<th className="d-none d-md-table-cell">Role</th>
+											<th>Image</th>
 											<th>Active</th>
-											<th className="d-none d-md-table-cell">Order</th>
 											<th className="text-center">Actions</th>
 										</tr>
 									</thead>
@@ -334,16 +333,28 @@ export default function AdminDashboard() {
 										{teamMembers.map((t) => (
 											<tr key={t.id}>
 												<td>{t.name}</td>
-												<td className="d-none d-md-table-cell">{t.role}</td>
+												<td>
+													{t.image_url ? (
+														<img
+															src={t.image_url}
+															alt={t.name}
+															style={{
+																width: "50px",
+																height: "50px",
+																objectFit: "cover",
+																borderRadius: "4px",
+															}}
+														/>
+													) : (
+														<span className="text-muted">No image</span>
+													)}
+												</td>
 												<td>
 													<span
 														className={`badge ${t.active ? "bg-success" : "bg-secondary"}`}
 													>
 														{t.active ? "Active" : "Inactive"}
 													</span>
-												</td>
-												<td className="d-none d-md-table-cell">
-													{t.order_index}
 												</td>
 												<td>
 													<div className="d-flex flex-column flex-md-row gap-1">

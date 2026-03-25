@@ -34,10 +34,7 @@ export type ContactMessage = {
 export type TeamMember = {
 	id: string;
 	name: string;
-	role: string;
-	bio: string | null;
 	image_url: string | null;
-	order_index: number;
 	active: boolean;
 	created_at: string;
 	updated_at: string;
