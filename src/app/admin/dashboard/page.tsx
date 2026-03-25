@@ -1,21 +1,15 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import {
-	supabase,
-	Testimonial,
-	ContactMessage,
-	TeamMember,
-} from "@/lib/supabase";
+import { supabase, Testimonial, TeamMember } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-type Tab = "testimonials" | "messages" | "team";
+type Tab = "testimonials" | "team";
 
 export default function AdminDashboard() {
 	const [activeTab, setActiveTab] = useState<Tab>("testimonials");
 	const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
-	const [messages, setMessages] = useState<ContactMessage[]>([]);
 	const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
 	const [loading, setLoading] = useState(true);
 	const [page, setPage] = useState(1);
@@ -24,7 +18,6 @@ export default function AdminDashboard() {
 
 	useEffect(() => {
 		if (activeTab === "testimonials") fetchTestimonials();
-		if (activeTab === "messages") fetchMessages();
 		if (activeTab === "team") fetchTeamMembers();
 	}, [activeTab, page]);
 
@@ -37,18 +30,6 @@ export default function AdminDashboard() {
 			.range(from, from + pageSize - 1);
 		if (error) console.error(error);
 		else setTestimonials(data || []);
-		setLoading(false);
-	};
-
-	const fetchMessages = async () => {
-		const from = (page - 1) * pageSize;
-		const { data, error } = await supabase
-			.from("contact_messages")
-			.select("*")
-			.order("created_at", { ascending: false })
-			.range(from, from + pageSize - 1);
-		if (error) console.error(error);
-		else setMessages(data || []);
 		setLoading(false);
 	};
 
@@ -73,26 +54,132 @@ export default function AdminDashboard() {
 
 	const deleteTestimonial = async (id: string) => {
 		if (!confirm("Delete this testimonial?")) return;
-		const { error } = await supabase.from("testimonials").delete().eq("id", id);
-		if (error) alert("Failed to delete.");
-		else fetchTestimonials();
-	};
 
-	const deleteMessage = async (id: string) => {
-		if (!confirm("Delete this message?")) return;
-		const { error } = await supabase
-			.from("contact_messages")
-			.delete()
-			.eq("id", id);
-		if (error) alert("Failed to delete.");
-		else fetchMessages();
+		try {
+			// First get the testimonial to get the image URL
+			const { data: testimonial, error: fetchError } = await supabase
+				.from("testimonials")
+				.select("image_url")
+				.eq("id", id)
+				.single();
+
+			if (fetchError) {
+				console.error("Failed to fetch testimonial:", fetchError);
+				alert("Failed to fetch testimonial details.");
+				return;
+			}
+
+			// Delete the testimonial from database
+			const { error: deleteError } = await supabase
+				.from("testimonials")
+				.delete()
+				.eq("id", id);
+
+			if (deleteError) {
+				console.error("Failed to delete testimonial:", deleteError);
+				alert("Failed to delete testimonial.");
+				return;
+			}
+
+			// If testimonial had an image, delete it from storage
+			if (testimonial?.image_url) {
+				try {
+					// Extract file path from URL
+					const url = new URL(testimonial.image_url);
+					const filePath = url.pathname.split("/").pop(); // Get just the filename
+
+					if (filePath) {
+						const { error: storageError } = await supabase.storage
+							.from("testimonials")
+							.remove([filePath]);
+
+						if (storageError) {
+							console.error(
+								"Failed to delete image from storage:",
+								storageError,
+							);
+							// Don't show error to user since testimonial was deleted successfully
+						} else {
+							console.log("Image deleted from storage successfully");
+						}
+					}
+				} catch (storageErr) {
+					console.error("Error deleting image from storage:", storageErr);
+					// Don't show error to user since testimonial was deleted successfully
+				}
+			}
+
+			// Refresh the testimonials list
+			fetchTestimonials();
+		} catch (error) {
+			console.error("Unexpected error deleting testimonial:", error);
+			alert("Failed to delete testimonial.");
+		}
 	};
 
 	const deleteTeamMember = async (id: string) => {
 		if (!confirm("Delete this team member?")) return;
-		const { error } = await supabase.from("team_members").delete().eq("id", id);
-		if (error) alert("Failed to delete.");
-		else fetchTeamMembers();
+
+		try {
+			// First get the team member to get the image URL
+			const { data: teamMember, error: fetchError } = await supabase
+				.from("team_members")
+				.select("image_url")
+				.eq("id", id)
+				.single();
+
+			if (fetchError) {
+				console.error("Failed to fetch team member:", fetchError);
+				alert("Failed to fetch team member details.");
+				return;
+			}
+
+			// Delete the team member from database
+			const { error: deleteError } = await supabase
+				.from("team_members")
+				.delete()
+				.eq("id", id);
+
+			if (deleteError) {
+				console.error("Failed to delete team member:", deleteError);
+				alert("Failed to delete team member.");
+				return;
+			}
+
+			// If team member had an image, delete it from storage
+			if (teamMember?.image_url) {
+				try {
+					// Extract file path from URL
+					const url = new URL(teamMember.image_url);
+					const filePath = url.pathname.split("/").pop(); // Get just the filename
+
+					if (filePath) {
+						const { error: storageError } = await supabase.storage
+							.from("team")
+							.remove([filePath]);
+
+						if (storageError) {
+							console.error(
+								"Failed to delete image from storage:",
+								storageError,
+							);
+							// Don't show error to user since team member was deleted successfully
+						} else {
+							console.log("Image deleted from storage successfully");
+						}
+					}
+				} catch (storageErr) {
+					console.error("Error deleting image from storage:", storageErr);
+					// Don't show error to user since team member was deleted successfully
+				}
+			}
+
+			// Refresh the team members list
+			fetchTeamMembers();
+		} catch (error) {
+			console.error("Unexpected error deleting team member:", error);
+			alert("Failed to delete team member.");
+		}
 	};
 
 	return (
@@ -120,18 +207,6 @@ export default function AdminDashboard() {
 						}}
 					>
 						Testimonials
-					</button>
-				</li>
-				<li className="nav-item">
-					<button
-						className={`nav-link ${activeTab === "messages" ? "active" : ""}`}
-						onClick={() => {
-							setActiveTab("messages");
-							setPage(1);
-							setLoading(true);
-						}}
-					>
-						Contact Messages
 					</button>
 				</li>
 				<li className="nav-item">
@@ -221,86 +296,6 @@ export default function AdminDashboard() {
 								<button
 									className="btn btn-outline-secondary"
 									disabled={testimonials.length < pageSize}
-									onClick={() => {
-										setPage(page + 1);
-										setLoading(true);
-									}}
-								>
-									Next
-								</button>
-							</div>
-						</>
-					)}
-
-					{activeTab === "messages" && (
-						<>
-							<div className="table-responsive mb-3">
-								<table className="table table-bordered table-hover">
-									<thead>
-										<tr>
-											<th>Name</th>
-											<th className="d-none d-lg-table-cell">Email</th>
-											<th>Subject</th>
-											<th className="d-none d-lg-table-cell">Message</th>
-											<th>Replied</th>
-											<th className="text-center">Actions</th>
-										</tr>
-									</thead>
-									<tbody>
-										{messages.map((m) => (
-											<tr key={m.id}>
-												<td>
-													{m.first_name} {m.last_name}
-												</td>
-												<td className="d-none d-lg-table-cell">{m.email}</td>
-												<td>{m.subject || "—"}</td>
-												<td className="d-none d-lg-table-cell">
-													{m.message.slice(0, 80)}
-													{m.message.length > 80 && "..."}
-												</td>
-												<td>
-													<span
-														className={`badge ${m.replied ? "bg-success" : "bg-warning"}`}
-													>
-														{m.replied ? "Replied" : "Pending"}
-													</span>
-												</td>
-												<td>
-													<div className="d-flex flex-column flex-md-row gap-1">
-														<Link
-															href={`/admin/messages/${m.id}`}
-															className="btn btn-sm btn-outline-primary"
-														>
-															View/Reply
-														</Link>
-														<button
-															className="btn btn-sm btn-outline-danger"
-															onClick={() => deleteMessage(m.id)}
-														>
-															Delete
-														</button>
-													</div>
-												</td>
-											</tr>
-										))}
-									</tbody>
-								</table>
-							</div>
-							<div className="d-flex justify-content-between align-items-center mt-3 flex-column flex-md-row">
-								<button
-									className="btn btn-outline-secondary mb-2 mb-md-0"
-									disabled={page === 1}
-									onClick={() => {
-										setPage(page - 1);
-										setLoading(true);
-									}}
-								>
-									Previous
-								</button>
-								<span>Page {page}</span>
-								<button
-									className="btn btn-outline-secondary"
-									disabled={messages.length < pageSize}
 									onClick={() => {
 										setPage(page + 1);
 										setLoading(true);
