@@ -91,17 +91,46 @@ export default function SubmitTestimonial() {
 			.from("testimonials")
 			.insert(testimonialData);
 
-		setIsSubmitting(false);
 		if (error) {
 			console.error("Database insert error:", error);
+			setIsSubmitting(false);
 			alert("Failed to submit testimonial. Please try again.");
-		} else {
-			console.log("Testimonial submitted successfully");
-			setSubmitted(true);
-			setFormData({ name: "", message: "", profession: "", company: "" });
-			setFile(null);
-			if (fileInputRef.current) fileInputRef.current.value = "";
+			return;
 		}
+
+		console.log("Testimonial submitted successfully");
+
+		// Send email notification
+		try {
+			const response = await fetch("/api/send-testimonial-notification", {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({
+					name: formData.name,
+					message: formData.message,
+					profession: formData.profession || undefined,
+					company: formData.company || undefined,
+					imageUrl: imageUrl || undefined,
+				}),
+			});
+
+			if (!response.ok) {
+				const errorData = await response.json();
+				console.error("Failed to send testimonial notification:", errorData);
+				// Don't show error to user since testimonial was saved successfully
+			} else {
+				console.log("Testimonial notification sent successfully");
+			}
+		} catch (emailError) {
+			console.error("Error sending testimonial notification:", emailError);
+			// Don't show error to user since testimonial was saved successfully
+		}
+
+		setIsSubmitting(false);
+		setSubmitted(true);
+		setFormData({ name: "", message: "", profession: "", company: "" });
+		setFile(null);
+		if (fileInputRef.current) fileInputRef.current.value = "";
 	};
 
 	if (submitted) {
