@@ -71,6 +71,11 @@ const Testimonials = () => {
 		);
 	}
 
+	// Don't render the section if there are no approved testimonials
+	if (testimonials.length === 0) {
+		return null;
+	}
+
 	return (
 		<div className="testimonial">
 			<div className="container">
